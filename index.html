@@ -1,47 +1,54 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pekola</title>
-    <link rel="icon" type="image/png" href="/symbol.png">
-    <style>
-        *
-        {
-          margin: 0px;
-        }
-        header
-        {
-            width: 100vw;
-            height: calc(6vh + 20px);
-            padding: 10px;
-            box-sizing: border-box;
-            background-color: #ffffff;
-        }
-        
-        body
-        {
-            background-color: aliceblue;
-        }
-
-        #banner
-        {
-            width: 100%;
-            height: 60vh; 
-            background: #fddf99 url('/imagenes/fondo.webp') no-repeat center bottom; 
-            background-size: auto 60vh;
-        }
-    </style>
+    <link rel="stylesheet" href="/style.css"> 
+    <link rel="icon" href="/icon.svg">
+    <title>Prueba de polarizacion de redes</title>
 </head>
 <body>
-    <header>
-        <img src="/symbol.svg" style="width: 6vh;height: 6vh;">
+    <section class="form-container">
+        <form class="form-container--form" id="form">
+            <label for="file" class="custom-file-upload">Selecciona un archivo</label>
+            <input type="file" class="form-file" id="file" accept=".txt" required multiple>
+    
+            <h2 class="form-title">Selecciona el algoritmo a usar</h2>
+    
+            <div class="form-options-container">
+                <div class="especific-option fuerza-bruta">
+                    <input type="radio" id="fuerzaBruta" name="algorithmType" value="FUERZABRUTA" required>
+                    <label for="fuerzaBruta">Fuerza bruta</label>
+                </div>
+                <div class="especific-option dinamica">
+                    <input type="radio" id="dinamica" name="algorithmType" value="DINAMICA">
+                    <label for="dinamica">Dinámica</label>
+                </div>
+                <div class="especific-option voraz">
+                    <input type="radio" id="voraz" name="algorithmType" value="VORAZ">
+                    <label for="voraz">Voraz</label>
+                </div>
+            </div>
+    
+            <input type="submit" class="form-submit" id="submit" value="Generar Resultado">
+            <a class="download" id="download"></a>
+        </form>
+    </section>
 
-    </header>
-    <div id="banner"></div>
-    <div style="display: flex;justify-content: center;align-items: center;">
-        <img src="/imagenes/cubo.webp" alt="" style="width: min(400px, 100%);height: auto;margin: 50px 0px;">
-    </div>
+    <section id="RS" class="results-container">
+        <h1>Resultados</h1>
 
+        <div class="results-titles">
+            <p>Entradas:</p>
+            <p>Salidas:</p>
+        </div>
+        
+        <div class="results">
+            <pre id="input"></pre>
+            <pre id="output"></pre>
+        </div>
+    </section>
+    
+    <script src="/main.js"></script>
 </body>
 </html>
